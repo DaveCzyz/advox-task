@@ -1,0 +1,15 @@
+{
+  "Data dodania - rosnąco": "Date - ASC",
+  "Data dodania - malejąco": "Date - DESC",
+  "Nazwa albumu": "Name",
+  "Ulubione - rosnąco": "Favorites - ASC",
+  "Ulubione - malejąco": "Favorites - DESC",
+  "Brak danych": "No data to show",
+  "Usuń": "Delete",
+  "Dodano": "Created",
+  "Dodaj do ulubionych": "set as best of the best",
+  "Usuń z ulubionych": "remove from best of the best",
+  "Dodaj": "Add to List",
+  "Przynajmniej 3 znaki!": "At least 3 characters!",
+  "Pole nie może być puste!": "The field cannot be empty!"
+}
