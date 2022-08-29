@@ -2,7 +2,7 @@
 import { ref, inject } from "vue";
 
 const change = inject("change");
-const l = inject("l");
+const lang = inject("lang");
 const languageDropdown = ref(false);
 </script>
 
@@ -17,7 +17,7 @@ const languageDropdown = ref(false);
         @click="languageDropdown = !languageDropdown"
         class="flex items-center"
       >
-        {{ l }}
+        {{ lang }}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -44,7 +44,7 @@ const languageDropdown = ref(false);
               change('PL');
               languageDropdown = false;
             "
-            :class="{ active: l === 'PL' }"
+            :class="{ active: lang === 'PL' }"
             class="p-2 hover:bg-stone-100 text-center"
           >
             PL
@@ -54,7 +54,7 @@ const languageDropdown = ref(false);
               change('EN');
               languageDropdown = false;
             "
-            :class="{ active: l === 'EN' }"
+            :class="{ active: lang === 'EN' }"
             class="p-2 hover:bg-stone-100 text-center"
           >
             EN

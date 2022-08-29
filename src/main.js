@@ -13,6 +13,6 @@ const { t, change, l } = translator("PL");
 
 app.provide("t", t);
 app.provide("change", change);
-app.provide("l", l);
+app.provide("lang", l);
 
 app.mount("#app");
