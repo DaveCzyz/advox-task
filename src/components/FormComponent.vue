@@ -34,10 +34,15 @@ const addAlbum = () => {
 <template>
   <div class="p-5 border-b">
     <form class="w-full">
-      <input type="text" v-model="albumName" class="input" />
+      <input
+        type="text"
+        :class="{ 'border border-red-400' : error }"
+        v-model="albumName"
+        class="input w-full sm:w-auto"
+      />
       <button
         @click.prevent="addAlbum"
-        class="btn bg-[color:var(--color-actions)] ml-2 md:ml-5"
+        class="btn w-full sm:w-auto mt-2 sm:mt-0 bg-[color:var(--color-actions)] border border-[color:var(--color-actions)] sm:ml-5"
       >
         {{ t("Dodaj") }}
       </button>
