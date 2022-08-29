@@ -33,7 +33,7 @@ const addAlbum = () => {
 
 <template>
   <div class="p-5 border-b">
-    <form class="w-full text-center md:text-left">
+    <form class="w-full">
       <input type="text" v-model="albumName" class="input" />
       <button
         @click.prevent="addAlbum"
@@ -41,9 +41,9 @@ const addAlbum = () => {
       >
         {{ t("Dodaj") }}
       </button>
+      <div v-if="error">
+        <span class="text-sm text-red-400">{{ t(error) }}</span>
+      </div>
     </form>
-    <div v-if="error">
-      <span class="text-sm text-red-400">{{ t(error) }}</span>
-    </div>
   </div>
 </template>
