@@ -4,10 +4,10 @@ import Header from "./HeaderComponent.vue";
 import Footer from "./FooterComponent.vue";
 import Form from "./FormComponent.vue";
 
-const albums = ref(null);
-const layout = ref("grid");
-const category = ref(null);
-const t = inject("t");
+const albums    = ref(null);
+const category  = ref(null);
+const layout    = ref("grid");
+const t         = inject("t");
 
 onMounted(() => {
   albums.value = JSON.parse(window.localStorage.getItem("advox-albums"));
@@ -32,7 +32,7 @@ const toggleFav = (id) => {
   window.localStorage.setItem("advox-albums", JSON.stringify(albums.value));
 
   /**
-   * Call sort function if current value is 'favorite' to keep
+   * Call sort function if current value is 'favorite' to keep order.
    **/
   if (category.value === "favorite") sort("favorite");
 };
@@ -41,9 +41,7 @@ const toggleFav = (id) => {
  * Delete album
  */
 const deleteItem = (id) => {
-  const album = (albums.value = albums.value.filter(
-    (item, index) => index !== id
-  ));
+  const album = (albums.value = albums.value.filter((item, index) => index !== id));
 
   if (album.length === 0) {
     window.localStorage.removeItem("advox-albums"); // Delete key from LS if no more results are present.
