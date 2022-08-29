@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex items-center justify-center w-screen h-screen bg-sky-50"
-  >
+  <div class="flex items-center justify-center w-screen h-screen bg-sky-50">
     <div class="px-40 py-20 bg-white rounded-md shadow-xl">
       <div class="flex flex-col items-center">
         <h1 class="font-bold text-9xl">404</h1>

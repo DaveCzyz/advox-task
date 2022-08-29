@@ -4,10 +4,10 @@ import Header from "./HeaderComponent.vue";
 import Footer from "./FooterComponent.vue";
 import Form from "./FormComponent.vue";
 
-const albums    = ref(null);
-const category  = ref(null);
-const layout    = ref("grid");
-const t         = inject("t");
+const albums = ref(null);
+const category = ref(null);
+const layout = ref("grid");
+const t = inject("t");
 
 onMounted(() => {
   albums.value = JSON.parse(window.localStorage.getItem("advox-albums"));
@@ -41,7 +41,9 @@ const toggleFav = (id) => {
  * Delete album
  */
 const deleteItem = (id) => {
-  const album = (albums.value = albums.value.filter((item, index) => index !== id));
+  const album = (albums.value = albums.value.filter(
+    (item, index) => index !== id
+  ));
 
   if (album.length === 0) {
     window.localStorage.removeItem("advox-albums"); // Delete key from LS if no more results are present.
@@ -57,19 +59,29 @@ const deleteItem = (id) => {
 const sort = (category) => {
   switch (category) {
     case "album":
-      albums.value.sort((a, b) => a.album > b.album ? 1 : b.album > a.album ? -1 : 0);
+      albums.value.sort((a, b) =>
+        a.album > b.album ? 1 : b.album > a.album ? -1 : 0
+      );
       break;
     case "created_at ASC":
-      albums.value.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+      albums.value.sort(
+        (a, b) => new Date(a.created_at) - new Date(b.created_at)
+      );
       break;
     case "created_at DESC":
-      albums.value.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+      albums.value.sort(
+        (a, b) => new Date(b.created_at) - new Date(a.created_at)
+      );
       break;
     case "favorite ASC":
-      albums.value.sort((a, b) => a.favorite < b.favorite ? 1 : b.favorite < a.favorite ? -1 : 0);
+      albums.value.sort((a, b) =>
+        a.favorite < b.favorite ? 1 : b.favorite < a.favorite ? -1 : 0
+      );
       break;
     case "favorite DESC":
-      albums.value.sort((a, b) => a.favorite > b.favorite ? 1 : b.favorite > a.favorite ? -1 : 0);
+      albums.value.sort((a, b) =>
+        a.favorite > b.favorite ? 1 : b.favorite > a.favorite ? -1 : 0
+      );
       break;
   }
 };
@@ -125,13 +137,17 @@ const sort = (category) => {
 
       <div class="flex pt-5 px-5 mx-1">
         <select
-            v-model="category"
-            name="sort"
-            class="input"
-            @change="sort($event.target.value)"
+          v-model="category"
+          name="sort"
+          class="input"
+          @change="sort($event.target.value)"
         >
-          <option value="created_at ASC">{{ t("Data dodania - rosnąco") }}</option>
-          <option value="created_at DESC">{{ t("Data dodania - malejąco") }}</option>
+          <option value="created_at ASC">
+            {{ t("Data dodania - rosnąco") }}
+          </option>
+          <option value="created_at DESC">
+            {{ t("Data dodania - malejąco") }}
+          </option>
           <option value="album">{{ t("Nazwa albumu") }}</option>
           <option value="favorite ASC">{{ t("Ulubione - rosnąco") }}</option>
           <option value="favorite DESC">{{ t("Ulubione - malejąco") }}</option>
@@ -140,7 +156,11 @@ const sort = (category) => {
 
       <div
         class="p-5 grid"
-        :class="[layout === 'grid' ? 'lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4' : 'grid-cols-1']"
+        :class="[
+          layout === 'grid'
+            ? 'lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'
+            : 'grid-cols-1',
+        ]"
       >
         <div v-for="(item, index) in albums" :key="index">
           <div
@@ -177,14 +197,14 @@ const sort = (category) => {
                 }}</span>
               </div>
             </div>
-            <div class="flex" :class="{'flex-col' : layout === 'grid'}">
+            <div class="flex" :class="{ 'flex-col': layout === 'grid' }">
               <button
                 class="btn sm bg-[color:var(--color-actions)]"
                 :class="[
                   item.favorite
                     ? 'bg-[color:var(--color-additional)]'
                     : 'bg-[color:var(--color-actions)]',
-                  {'mb-2' : layout === 'grid'}
+                  { 'mb-2': layout === 'grid' },
                 ]"
                 @click="toggleFav(index)"
               >
@@ -196,7 +216,7 @@ const sort = (category) => {
               </button>
               <button
                 class="btn sm bg-stone-200 text-stone-500"
-                :class="{'ml-2' : layout === 'list'}"
+                :class="{ 'ml-2': layout === 'list' }"
                 @click="deleteItem(index)"
               >
                 {{ t("Usuń") }}
