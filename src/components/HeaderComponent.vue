@@ -45,7 +45,7 @@ const languageDropdown = ref(false);
               languageDropdown = false;
             "
             :class="{ active: lang === 'PL' }"
-            class="p-2 hover:bg-stone-100 text-center"
+            class="py-2 px-4 hover:bg-stone-100 text-center"
           >
             PL
           </div>
@@ -55,7 +55,7 @@ const languageDropdown = ref(false);
               languageDropdown = false;
             "
             :class="{ active: lang === 'EN' }"
-            class="p-2 hover:bg-stone-100 text-center"
+            class="py-2 px-4 hover:bg-stone-100 text-center"
           >
             EN
           </div>

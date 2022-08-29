@@ -37,7 +37,7 @@ const addAlbum = () => {
       <input type="text" v-model="albumName" class="input" />
       <button
         @click.prevent="addAlbum"
-        class="btn bg-[color:var(--color-actions)] ml-5"
+        class="btn bg-[color:var(--color-actions)] ml-2 md:ml-5"
       >
         {{ t("Dodaj") }}
       </button>
