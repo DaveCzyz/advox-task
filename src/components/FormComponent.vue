@@ -35,6 +35,7 @@ const addAlbum = () => {
   <div class="p-5 border-b">
     <form class="w-full">
       <input
+        @blur="error = false"
         type="text"
         :class="{ 'border border-red-400' : error }"
         v-model="albumName"
