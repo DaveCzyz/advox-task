@@ -24,3 +24,9 @@ npm run lint
 ```sh
 npm run format
 ```
+
+### Unit test
+
+```sh
+npm run test:unit
+```
