@@ -5,16 +5,14 @@
 @layer base {
   :root {
     --color-advox: #1c9dd9;
-    --color-secondary: #148098;
     --color-actions: #d91c91;
     --color-additional: #981466;
-    --color-extra: #d9bb1c;
   }
 }
 
 @layer components {
   .input {
-    @apply border border-gray-500 rounded-sm shadow-none p-2;
+    @apply border border-[color:var(--color-actions)] rounded-sm shadow-none p-2;
   }
 
   input:focus {
@@ -25,7 +23,7 @@
     @apply shadow-sm px-5 py-2 text-white cursor-pointer rounded-sm;
   }
 
-  .btn.sm {
+  .btn.btn-sm {
     @apply px-3 py-1;
   }
 }
@@ -36,4 +34,15 @@ button.active {
 
 span.active {
   color: var(--color-actions);
+}
+
+/** Dropdown animation **/
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }

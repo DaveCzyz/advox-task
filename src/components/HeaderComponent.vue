@@ -4,6 +4,8 @@ import { ref, inject } from "vue";
 const change = inject("change");
 const lang = inject("lang");
 const languageDropdown = ref(false);
+
+const toggleDropdown = () => (languageDropdown.value = !languageDropdown.value);
 </script>
 
 <template>
@@ -14,8 +16,8 @@ const languageDropdown = ref(false);
 
     <div class="relative">
       <button
-        @click="languageDropdown = !languageDropdown"
-        class="flex items-center"
+        @click="toggleDropdown"
+        class="flex items-center text-[color:var(--color-actions)]"
       >
         {{ lang }}
         <svg
@@ -34,7 +36,7 @@ const languageDropdown = ref(false);
         </svg>
       </button>
 
-      <Transition>
+      <Transition name="fade">
         <div
           v-if="languageDropdown"
           class="absolute border shadow-xl bg-white cursor-pointer right-0"
@@ -64,15 +66,3 @@ const languageDropdown = ref(false);
     </div>
   </header>
 </template>
-
-<style scoped>
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-</style>

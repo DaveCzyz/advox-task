@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import HomeView from "../components/HomeView.vue";
+import IndexComponent from "../components/IndexComponent.vue";
 import NotFoundComponent from "../components/NotFoundComponent.vue";
 
 const router = createRouter({
@@ -9,7 +9,7 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView,
+      component: IndexComponent,
     },
     {
       path: "/:pathMatch(.*)",

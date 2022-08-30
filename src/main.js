@@ -7,9 +7,11 @@ import "./style.css";
 
 const app = createApp(App);
 
+app.config.productionTip = false;
+
 app.use(router);
 
-const { t, change, l } = translator("PL");
+const { t, change, l } = translator();
 
 app.provide("t", t);
 app.provide("change", change);

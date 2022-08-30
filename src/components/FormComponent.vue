@@ -37,18 +37,22 @@ const addAlbum = () => {
       <input
         @blur="error = false"
         type="text"
-        :class="{ 'border border-red-400' : error }"
+        :class="{ 'border border-red-400': error }"
         v-model="albumName"
-        class="input w-full sm:w-auto"
+        class="input w-full sm:w-auto mb-5 sm:mb-0"
       />
       <button
+        class="group relative inline-flex border border-[color:var(--color-actions)] focus:outline-none w-full sm:w-auto sm:ml-5"
         @click.prevent="addAlbum"
-        class="btn w-full sm:w-auto mt-2 sm:mt-0 bg-[color:var(--color-actions)] border border-[color:var(--color-actions)] sm:ml-5"
       >
-        {{ t("Dodaj") }}
+        <span
+          class="pt-[9px] pb-[9px] w-full inline-flex items-center justify-center self-stretch px-4 text-sm text-[color:var(--color-actions)] text-center font-bold uppercase bg-white ring-1 ring-[color:var(--color-actions)] ring-offset-1 transform transition-transform group-hover:-translate-y-1 group-hover:-translate-x-1 group-focus:-translate-y-1 group-focus:-translate-x-1"
+        >
+          {{ t("Dodaj") }}
+        </span>
       </button>
       <div v-if="error">
-        <span class="text-sm text-red-400">{{ t(error) }}</span>
+        <span id="error" class="text-sm text-red-400">{{ t(error) }}</span>
       </div>
     </form>
   </div>

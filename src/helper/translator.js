@@ -1,8 +1,8 @@
 import { ref } from "vue";
 import en from "@/lang/en.json";
 
-export default function (lang) {
-  const l = ref(lang);
+export default function () {
+  const l = ref("PL");
 
   const t = (text) => {
     if (l.value !== "PL") {

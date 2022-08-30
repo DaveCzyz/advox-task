@@ -4,7 +4,11 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js}"],
   theme: {
-    extend: {},
+    extend: {
+      padding: {
+        "9px": "9px",
+      },
+    },
   },
   plugins: [],
 };
