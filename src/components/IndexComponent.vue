@@ -41,9 +41,9 @@ const toggleFav = (id) => {
   window.localStorage.setItem("advox-albums", JSON.stringify(albums.value));
 
   /**
-   * Call sort function if current value is 'favorite' to keep order.
-   **/
-  if (category.value === "favorite") sort("favorite");
+   * Keep order when new item appears
+   */
+  if (category.value) sort(category.value);
 };
 
 /**
